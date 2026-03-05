@@ -14,31 +14,41 @@
     box-sizing:border-box;
     font-family:Arial, sans-serif;
 }
-.search-box{
+.search-container{
     display:flex;
     justify-content:center;
-    margin:20px;
+    margin:30px;
 }
 
-.search-box input{
-    padding:10px;
-    width:250px;
-    border:none;
-    border-radius:5px 0 0 5px;
-    outline:none;
-}
-
-.search-box button{
-    padding:10px 20px;
-    border:none;
-    background:#00bfff;
+.search-container input{
+    padding:12px;
+    width:280px;
+    border:2px solid #00ffff;
+    background:#0b1a2a;
     color:white;
-    border-radius:0 5px 5px 0;
-    cursor:pointer;
+    outline:none;
+    border-radius:8px 0 0 8px;
+    box-shadow:0 0 10px #00ffff, 0 0 20px #00ffff;
+    transition:0.3s;
 }
 
-.search-box button:hover{
-    background:#009acd;
+.search-container input:focus{
+    box-shadow:0 0 15px #00ffff, 0 0 30px #00ffff;
+}
+
+.search-container button{
+    padding:12px 20px;
+    border:none;
+    background:#00ffff;
+    color:#000;
+    border-radius:0 8px 8px 0;
+    cursor:pointer;
+    box-shadow:0 0 10px #00ffff, 0 0 20px #00ffff;
+    transition:0.3s;
+}
+
+.search-container button:hover{
+    box-shadow:0 0 20px #00ffff, 0 0 40px #00ffff;
 }
 
 body {
@@ -253,9 +263,9 @@ footer{
 <body>
 
 <header>E-BOOK EMPIRE</header>
-<div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search ebooks...">
-    <button onclick="searchFunction()">Search</button>
+<div class="search-container">
+    <input type="text" placeholder="Search your ebook...">
+    <button>Search</button>
 </div>
 <nav>
 <a href="#">Home</a>
