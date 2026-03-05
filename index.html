@@ -56,6 +56,27 @@ body {
     color: #ffffff;
     font-family: Arial, sans-serif;
 }
+#contact{
+    text-align:center;
+    padding:40px;
+    background:#0b1a2a;
+    color:white;
+}
+
+#contact input, #contact textarea{
+    padding:10px;
+    width:250px;
+    border-radius:5px;
+    border:none;
+}
+
+#contact button{
+    padding:10px 20px;
+    background:#00ffff;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
 
 /* HEADER */
 header{
@@ -269,6 +290,7 @@ footer{
 </div>
 <nav>
 <a href="#">Home</a>
+<a href="#contact">Contact</a>
 
 <div class="dropdown">
     <a href="#">Books ▾</a>
@@ -338,6 +360,18 @@ footer{
 <footer>
 © 2026 E-BOOK EMPIRE | All Rights Reserved
 </footer>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: ebookempire@gmail.com</p>
+    <p>Phone: +91 9876543210</p>
+
+    <form>
+        <input type="text" placeholder="Your Name" required><br><br>
+        <input type="email" placeholder="Your Email" required><br><br>
+        <textarea placeholder="Your Message"></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+</section>
 
 <div class="qr-modal" id="qrModal">
 <div class="qr-box">
