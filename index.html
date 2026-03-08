@@ -8,291 +8,258 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
+body {
+    background: linear-gradient(135deg, #020617, #0b1a36, #1a2a50); 
+    color: #ffffff;
+    font-family: Arial, sans-serif;
 }
-
-body{
-background: linear-gradient(135deg,#020617,#0b1a36,#1a2a50);
-color:white;
+.glow{
+    font-size:60px;
+    color:white;
+    text-align:center;
+    text-shadow:
+        0 0 5px #00f7ff,
+        0 0 10px #00f7ff,
+        0 0 20px #00f7ff,
+        0 0 40px #00f7ff;
 }
 
 /* HEADER */
-
 header{
-padding:20px;
-text-align:center;
-font-size:38px;
-font-weight:900;
-letter-spacing:3px;
-font-family:'Playfair Display',serif;
-border-bottom:2px solid #00ffd5;
-background: linear-gradient(45deg,#d4af37,#f6e27a,#d4af37);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-/* SEARCH */
-
-.search-container{
-display:flex;
-justify-content:center;
-margin:30px;
-}
-
-.search-container input{
-padding:12px;
-width:280px;
-border:2px solid #00ffff;
-background:#0b1a2a;
-color:white;
-outline:none;
-border-radius:8px 0 0 8px;
-box-shadow:0 0 10px #00ffff;
-}
-
-.search-container button{
-padding:12px 20px;
-border:none;
-background:#00ffff;
-color:black;
-border-radius:0 8px 8px 0;
-cursor:pointer;
+    padding:20px;
+    text-align:center;
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:3px;
+    font-family:'Playfair Display', serif;
+    border-bottom:2px solid #00ffd5;
+    background: linear-gradient(45deg,#d4af37,#f6e27a,#d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* NAV */
-
 nav{
-display:flex;
-justify-content:center;
-gap:30px;
-padding:15px;
-background:rgba(0,0,0,0.3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    padding:15px;
+    background:rgba(0,0,0,0.3);
 }
 
 nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.3s;
 }
 
 nav a:hover{
-color:#00ffd5;
+    color:#00ffd5;
 }
 
-/* DROPDOWN */
-
+/* SMOOTH DROPDOWN */
 .dropdown{
-position:relative;
+    position:relative;
 }
 
 .dropdown-content{
-position:absolute;
-top:40px;
-left:0;
-background:black;
-min-width:200px;
-border-radius:10px;
+    position:absolute;
+    top:40px;
+    left:0;
+    background:rgba(0,0,0,0.98);
+    min-width:220px;
+    border-radius:10px;
+    padding:10px 0;
+    box-shadow:0 10px 25px rgba(0,255,136,0.3);
 
-opacity:0;
-visibility:hidden;
-transform:translateY(10px);
-transition:0.3s;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(15px);
+    transition: all 0.35s ease;
+
+    z-index:9999; /* FIXED */
 }
 
 .dropdown-content a{
-display:block;
-padding:12px;
+    display:block;
+    padding:12px 20px;
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.dropdown-content a:hover{
+    background:#00ffd5;
+    color:black;
+    padding-left:28px;
 }
 
 .dropdown:hover .dropdown-content{
-opacity:1;
-visibility:visible;
-transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
 }
 
 /* HERO */
-
 .hero{
-text-align:center;
-padding:60px 20px;
+    text-align:center;
+    padding:60px 20px;
 }
 
 .hero h1{
-font-size:45px;
-margin-bottom:10px;
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:0.8;
+    margin-bottom:40px;
 }
 
 .hero-books{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-max-width:1100px;
-margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    max-width:1100px;
+    margin:auto;
 }
 
-/* BOOK */
-
+/* BOOK BOX (NO BLUR NOW) */
 .book{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:20px;
-border:2px solid #00ff88;
-box-shadow:0 0 15px rgba(0,255,136,0.6);
-transition:0.3s;
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    border:2px solid #00ff88;
+    box-shadow: 
+        0 0 12px rgba(0,255,136,0.6),
+        0 0 20px rgba(0,255,136,0.4);
+    transition:0.3s;
 }
 
 .book:hover{
-transform:translateY(-6px);
+    transform:translateY(-6px);
 }
 
 .book-header{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
 }
 
 .book-header img{
-width:60px;
-height:85px;
-border-radius:8px;
-object-fit:cover;
+    width:60px;
+    height:85px;
+    border-radius:8px;
+    object-fit:cover;
 }
 
 .price{
-font-size:22px;
-color:#00ffd5;
-margin:10px 0;
+    font-size:22px;
+    color:#00ffd5;
+    margin:10px 0;
 }
 
 .btn{
-display:inline-block;
-padding:10px 20px;
-background:#00ffd5;
-color:black;
-border-radius:25px;
-text-decoration:none;
-font-weight:bold;
+    display:inline-block;
+    padding:10px 20px;
+    background:#00ffd5;
+    color:black;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
 }
 
 .btn:hover{
-background:white;
+    background:white;
 }
-
-/* CONTACT */
-
-#contact{
-    text-align:center;
-    padding:60px 20px;
-    background:#0b1a2a;
-    color:white;
-    width:100%;
-    margin-top:80px;
-}
-
-#contact input,
-#contact textarea{
-padding:10px;
-width:250px;
-border:none;
-border-radius:5px;
-}
-
-#contact button{
-padding:10px 20px;
-background:#00ffff;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
-/* FOOTER */
 
 footer{
-text-align:center;
-padding:20px;
-background:rgba(0,0,0,0.4);
-margin-top:40px;
-border-top:2px solid #00ffd5;
+    text-align:center;
+    padding:20px;
+    margin-top:60px;
+    background:rgba(0,0,0,0.4);
+    border-top:2px solid #00ffd5;
 }
 
-/* QR PAYMENT */
-
+/* QR MODAL */
 .qr-modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
 }
 
 .qr-box{
-background:#111;
-padding:25px;
-border-radius:20px;
-text-align:center;
-border:3px solid #00ff88;
+    background:#111;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    border:3px solid #00ff88;
+    box-shadow:0 0 18px rgba(0,255,136,0.6);
 }
 
 .qr-box img{
-width:250px;
+    width:250px;
+    border-radius:10px;
 }
 
 .close-btn{
-margin-top:15px;
-padding:8px 15px;
-border:none;
-background:#00ff88;
-color:black;
-border-radius:10px;
-cursor:pointer;
+    margin-top:15px;
+    padding:8px 15px;
+    border:none;
+    background:#00ff88;
+    color:black;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
-
 </style>
 </head>
 
 <body>
+    
+    <h1 class="glow">WELCOME TO E-BOOK EMPIRE</h1>
 
 <header>E-BOOK EMPIRE</header>
 
-<div class="search-container">
-<input type="text" placeholder="Search your ebook...">
-<button>Search</button>
-</div>
-
 <nav>
 <a href="#">Home</a>
-<a href="#contact">Contact</a>
 
 <div class="dropdown">
-<a href="#">Books ▾</a>
-
-<div class="dropdown-content">
-<a href="#">12th Books</a>
-<a href="#">11th Books</a>
-<a href="#">10th Books</a>
-<a href="#">Coding Notes</a>
+    <a href="#">Books ▾</a>
+    <div class="dropdown-content">
+        <a href="#">12th Books</a>
+        <a href="#">12th Apekshit</a>
+        <a href="#">11th Books</a>
+        <a href="#">11th Apekshit</a>
+        <a href="#">10th Guide PDF</a>
+        <a href="#">10th Target PDF</a>
+        <a href="#">12th Target PDF</a>
+    </div>
 </div>
 
-</div>
-
+<a href="#">Contact</a>
 </nav>
 
 <section class="hero">
-
 <h1>Premium eBooks</h1>
 <p>Learn. Grow. Succeed.</p>
 
@@ -325,7 +292,7 @@ cursor:pointer;
 </div>
 <div class="price">₹15</div>
 <a href="#" onclick="showQR()" class="btn">Pay ₹15</a><br><br>
-<a href="bio.pdf" class="btn">Download</a>
+<a href="Bio 12.pdf" class="btn">Download</a>
 </div>
 
 <div class="book">
@@ -341,33 +308,30 @@ cursor:pointer;
 </div>
 </section>
 
-
-<p>Email: jayeshmarathe006@gmail.com</p>
-<p>Phone: +91 7776958686</p>
-<p>Instagram: @swami8605</p>
-
-<br>
-
-<form>
-
-<input type="text" placeholder="Your Name" required>
-<br><br>
-
-<input type="email" placeholder="Your Email" required>
-<br><br>
-
-<textarea placeholder="Your Message"></textarea>
-
-<br><br>
-
-<button type="submit">Send</button>
-
-</form>
-
-</section>
-
 <footer>
 © 2026 E-BOOK EMPIRE | All Rights Reserved
 </footer>
 
-<div class="qr-modal" id="
+<div class="qr-modal" id="qrModal">
+<div class="qr-box">
+<h2>Scan to Pay</h2>
+<p style="margin:10px 0;">After payment, click download.</p>
+<p style="color:#00ff88;font-weight:bold;">UPI ID: 7776958686-2@axl</p>
+<img src="qr.png">
+<br>
+<button class="close-btn" onclick="closeQR()">Close</button>
+</div>
+</div>
+
+<script>
+function showQR(){
+    document.getElementById("qrModal").style.display="flex";
+}
+function closeQR(){
+    document.getElementById("qrModal").style.display="none";
+}
+</script>
+
+
+</body>
+</html>
