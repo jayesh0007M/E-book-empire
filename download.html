@@ -3,83 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unlock Download</title>
+<title>Download - E-BOOK EMPIRE</title>
 
 <style>
+
 body{
-background:#0b0f2b;
+background:linear-gradient(135deg,#020617,#0b1a36,#1a2a50);
 color:white;
-text-align:center;
 font-family:Arial;
+text-align:center;
 padding-top:120px;
 }
 
+h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
 input{
-padding:12px;
+padding:12px 20px;
 font-size:16px;
 border-radius:8px;
 border:none;
+outline:none;
 }
 
 button{
 padding:12px 25px;
-font-size:16px;
-margin-top:10px;
-background:gold;
+font-size:18px;
+background:#00ffd5;
+color:black;
 border:none;
 border-radius:8px;
 cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:white;
 }
 
 #download{
 display:none;
-margin-top:30px;
+margin-top:20px;
 }
+
+.download-btn{
+background:#00ff88;
+box-shadow:0 0 10px #00ff88;
+}
+
+.instructions-title{
+margin-top:35px;
+font-size:24px;
+font-weight:bold;
+color:#00ffd5;
+}
+
+.instructions{
+list-style:none;
+font-size:20px;
+line-height:2.2;
+margin-top:10px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h1>Enter Password to Download</h1>
+<h1>E-BOOK EMPIRE</h1>
 
-<input type="password" id="pass" placeholder="Enter Password">
-<br>
-<button onclick="check()">Unlock</button>
-<p style="margin-top:25px; font-size:22px; font-weight:bold; color:#00ffd5;">
-📌 Instructions:
-</p>
+<input type="password" id="password" placeholder="Enter Password">
 
-<ul style="list-style:none; font-size:20px; line-height:2.2; color:white;">
-<li>1️⃣ Pay using the QR code on the website.</li>
-<li>2️⃣ Send payment screenshot.</li>
-<li>3️⃣ You will receive the password.</li>
-<li>4️⃣ Enter the password above to download your PDF.</li>
-</ul>
+<br><br>
+
+<button onclick="unlock()">Unlock Download</button>
+
+<br><br>
 
 <div id="download">
 
-<h2>Download Your PDF</h2>
-
-<a href="python-notes.pdf" download>
-<button>Download PDF</button>
+<a id="downloadLink" href="#" download>
+<button class="download-btn">Download PDF</button>
 </a>
 
 </div>
 
+<p class="instructions-title">📌 Instructions</p>
+
+<ul class="instructions">
+<li>1️⃣ Pay using the QR code for password.</li>
+<li>2️⃣ Send payment screenshot on 777695886 or @ebookempire00.</li>
+<li>3️⃣ You will receive the password within second.</li>
+<li>4️⃣ Enter the password above to download your PDF.</li>
+</ul>
+
 <script>
 
-function check(){
+function unlock(){
 
-var password = document.getElementById("pass").value;
+var pass = document.getElementById("password").value;
 
-if(password === "ebook123"){
+if(pass === "ebook123"){
+
+var params = new URLSearchParams(window.location.search);
+var file = params.get("file");
+
+document.getElementById("downloadLink").href = file;
 
 document.getElementById("download").style.display = "block";
 
 }else{
 
-alert("Wrong Password");
+alert("Wrong password");
 
 }
 
