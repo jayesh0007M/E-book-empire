@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlock Download</title>
+
+<style>
+body{
+background:#0b0f2b;
+color:white;
+text-align:center;
+font-family:Arial;
+padding-top:120px;
+}
+
+input{
+padding:12px;
+font-size:16px;
+border-radius:8px;
+border:none;
+}
+
+button{
+padding:12px 25px;
+font-size:16px;
+margin-top:10px;
+background:gold;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+#download{
+display:none;
+margin-top:30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Enter Password to Download</h1>
+
+<input type="password" id="pass" placeholder="Enter Password">
+<br>
+<button onclick="check()">Unlock</button>
+<p style="margin-top:25px; font-size:22px; font-weight:bold; color:#00ffd5;">
+📌 Instructions:
+</p>
+
+<ul style="list-style:none; font-size:20px; line-height:2.2; color:white;">
+<li>1️⃣ Pay using the QR code on the website.</li>
+<li>2️⃣ Send payment screenshot.</li>
+<li>3️⃣ You will receive the password.</li>
+<li>4️⃣ Enter the password above to download your PDF.</li>
+</ul>
+
+<div id="download">
+
+<h2>Download Your PDF</h2>
+
+<a href="python-notes.pdf" download>
+<button>Download PDF</button>
+</a>
+
+</div>
+
+<script>
+
+function check(){
+
+var password = document.getElementById("pass").value;
+
+if(password === "ebook123"){
+
+document.getElementById("download").style.display = "block";
+
+}else{
+
+alert("Wrong Password");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
