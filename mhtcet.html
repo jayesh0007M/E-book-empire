@@ -4,216 +4,292 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>12th MHT-CET Books | E-BOOK EMPIRE</title>
+
 <style>
+
 body{
-    background: linear-gradient(135deg,#020617,#0b1a36,#1a2a50);
-    font-family: Arial, sans-serif;
-    color: white;
-    padding: 20px;
-    text-align: center;
+background: linear-gradient(135deg,#020617,#0b1a36,#1a2a50);
+font-family: Arial;
+color:white;
+padding:20px;
+text-align:center;
 }
 
 h1{
-    font-size:50px;
-    color: gold;
-    text-shadow:0 0 15px gold;
-    margin-bottom:40px;
+font-size:50px;
+color:gold;
+text-shadow:0 0 15px gold;
+margin-bottom:40px;
 }
 
-/* Books container */
+/* BOOK GRID */
 .hero-books{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: auto;
-    align-items: stretch; /* ensure all boxes stretch to same height */
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
 }
 
+/* BOOK CARD */
 .book{
-    background: rgba(255,255,255,0.08);
-    padding: 25px;
-    border-radius: 20px;
-    border: 2px solid #00ff88;
-    box-shadow: 0 0 12px rgba(0,255,136,0.6), 0 0 20px rgba(0,255,136,0.4);
-    transition: 0.3s;
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:20px;
+border:2px solid #00ff88;
+box-shadow:0 0 12px rgba(0,255,136,0.6),0 0 20px rgba(0,255,136,0.4);
+transition:0.3s;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 400px; /* all boxes same minimum height */
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:400px;
 }
+
 .book:hover{
-    transform:translateY(-6px);
+transform:translateY(-6px);
 }
 
-/* Book header */
+/* HEADER */
 .book-header{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:15px;
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:15px;
 }
 
 .book-header img{
-    width:120px;
-    height:175px;
-    border-radius:8px;
-    object-fit:cover;
-}
-@media screen and (max-width: 500px){
-    .book-header img{
-        width:90px;
-        height:130px;
-    }
+width:120px;
+height:175px;
+border-radius:8px;
+object-fit:cover;
 }
 
-/* Price */
+@media screen and (max-width:500px){
+.book-header img{
+width:90px;
+height:130px;
+}
+}
+
+/* PRICE */
 .price{
-    font-size:22px;
-    color:#00ffd5;
-    margin:10px 0;
+font-size:22px;
+color:#00ffd5;
+margin:10px 0;
 }
 
-/* Buttons */
+/* BUTTON */
 .btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#00ff88;           /* green base */
-    color:black;
-    border-radius:25px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
-    margin:5px 0;
-    
-    /* Glow effect */
-    box-shadow: 
-        0 0 8px #00ff88,    /* green glow */
-        0 0 15px #00ff88,
-        0 0 0 2px white;    /* white border glow */
-    border: 2px solid white;     /* white border for extra glow */
+display:inline-block;
+padding:12px 25px;
+background:#00ff88;
+color:black;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+margin:5px 0;
+
+box-shadow:
+0 0 8px #00ff88,
+0 0 15px #00ff88,
+0 0 0 2px white;
+
+border:2px solid white;
 }
 
-/* Hover effect */
 .btn:hover{
-    background:white;
-    color:black;
-    box-shadow: 
-        0 0 15px #00ff88,
-        0 0 35px #00ff88,
-        0 0 50px #00ff88,
-        0 0 8px white,      /* stronger white border glow */
-        0 0 15px white;
+background:white;
+color:black;
+
+box-shadow:
+0 0 15px #00ff88,
+0 0 35px #00ff88,
+0 0 50px #00ff88,
+0 0 8px white,
+0 0 15px white;
 }
 
-/* QR MODAL */
+/* QR POPUP */
 .qr-modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.85);
-    justify-content:center;
-    align-items:center;
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
 }
 
 .qr-box{
-    background:#111;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-    border:3px solid #00ff88;
-    box-shadow:0 0 18px rgba(0,255,136,0.6);
+background:#111;
+padding:25px;
+border-radius:20px;
+text-align:center;
+border:3px solid #00ff88;
+box-shadow:0 0 18px rgba(0,255,136,0.6);
 }
 
 .qr-box img{
-    width:250px;
-    border-radius:10px;
+width:250px;
+border-radius:10px;
 }
 
 .close-btn{
-    margin-top:15px;
-    padding:8px 15px;
-    border:none;
-    background:#00ff88;
-    color:black;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
+margin-top:15px;
+padding:8px 15px;
+border:none;
+background:#00ff88;
+color:black;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
 }
+
 </style>
 </head>
+
 <body>
 
 <h1>12th MHT-CET Books</h1>
 
 <div class="hero-books">
 
+<!-- Physics -->
 <div class="book">
 <div class="book-header">
-<img src="physicscet.jpg" alt="Physics Book">
+<img src="physicscet.jpg">
 <h3>Physics</h3>
 </div>
 <div class="price">₹15</div>
-<a href="#" onclick="showQR()" class="btn">Pay ₹15</a><br>
+<a href="#" onclick="showQR()" class="btn">Pay ₹15</a>
 <a href="download.html?file=physicscet.pdf" class="btn">Download</a>
 </div>
 
+<!-- Chemistry -->
 <div class="book">
 <div class="book-header">
-<img src="physicscet.jpg" alt="Chemistry Book">
+<img src="physicscet.jpg">
 <h3>Chemistry</h3>
 </div>
 <div class="price">₹15</div>
-<a href="#" onclick="showQR()" class="btn">Pay ₹15</a><br>
+<a href="#" onclick="showQR()" class="btn">Pay ₹15</a>
 <a href="download.html?file=chemistrycet.pdf" class="btn">Download</a>
 </div>
 
+<!-- Mathematics -->
 <div class="book">
 <div class="book-header">
-<img src="physicscet.jpg" alt="Mathematics Book">
+<img src="physicscet.jpg">
 <h3>Mathematics</h3>
 </div>
 <div class="price">₹15</div>
-<a href="#" onclick="showQR()" class="btn">Pay ₹15</a><br>
+<a href="#" onclick="showQR()" class="btn">Pay ₹15</a>
 <a href="download.html?file=mathscet.pdf" class="btn">Download</a>
 </div>
 
-</div>
+<!-- Biology -->
 <div class="book">
-  <div class="book-header">
-    <img src="hc.jpg" alt="physics Book">
-    <h3>physics</h3>
-  </div>
-  <div class="price">₹15</div>
-  <a href="#" onclick="showQR()" class="btn">Pay ₹15</a><br>
-  <a href="download.html?file=hc.pdf" class="btn">Download</a>
+<div class="book-header">
+<img src="bionotes.jpg">
+<h3>Biology</h3>
+</div>
+<div class="price">₹15</div>
+<a href="#" onclick="showQR()" class="btn">Pay ₹15</a>
+<a href="download.html?file=biologycet.pdf" class="btn">Download</a>
 </div>
 
-<!-- QR Modal -->
+<!-- Math Sheet -->
+<div class="book">
+<div class="book-header">
+<img src="mathsheet.jpg">
+<h3>MATH-1 Formula Sheet</h3>
+</div>
+<div class="price">₹10</div>
+<a href="#" onclick="showQR()" class="btn">Pay ₹10</a>
+<a href="download.html?file=mathsheet.pdf" class="btn">Download</a>
+</div>
+
+<!-- math 2 Sheet -->
+<div class="book">
+<div class="book-header">
+<img src="mathsheet.jpg">
+<h3>MATH-2 Formula Sheet</h3>
+</div>
+<div class="price">₹10</div>
+<a href="#" onclick="showQR()" class="btn">Pay ₹10</a>
+<a href="download.html?file=chemsheet.pdf" class="btn">Download</a>
+</div>
+
+<!-- physics Sheet -->
+<div class="book">
+<div class="book-header">
+<img src="physheet.jpg">
+<h3>Physics Formula Sheet</h3>
+</div>
+<div class="price">₹5</div>
+<a href="#" onclick="showQR()" class="btn">Pay ₹5</a>
+<a href="download.html?file=physheet.pdf" class="btn">Download</a>
+</div>
+
+<!-- chemistry Sheet -->
+<div class="book">
+<div class="book-header">
+<img src="chemsheet.jpg">
+<h3>Chemistry Formula Sheet</h3>
+</div>
+<div class="price">₹5</div>
+<a href="#" onclick="showQR()" class="btn">Pay ₹5</a>
+<a href="download.html?file=chemsheet.pdf" class="btn">Download</a>
+</div>
+
+<!-- biology Sheet -->
+<div class="book">
+<div class="book-header">
+<img src="biosheet.jpg">
+<h3>Biology IMP Note Sheet</h3>
+</div>
+<div class="price">₹5</div>
+<a href="#" onclick="showQR()" class="btn">Pay ₹5</a>
+<a href="download.html?file=biosheet.pdf" class="btn">Download</a>
+</div>
+
+</div>
+
+<!-- QR PAYMENT POPUP -->
 <div class="qr-modal" id="qrModal">
 <div class="qr-box">
+
 <h2>Scan to Pay</h2>
-<p style="margin:10px 0;">After payment, click download.</p>
-<p style="color:#00ff88;font-weight:bold;">UPI ID: 7776958686-2@axl</p>
-<img src="qr.png" alt="QR Code">
+
+<p style="margin:10px 0;">After payment click download.</p>
+
+<p style="color:#00ff88;font-weight:bold;">
+UPI ID: 7776958686-2@axl
+</p>
+
+<img src="qr.png">
+
 <br>
+
 <button class="close-btn" onclick="closeQR()">Close</button>
+
 </div>
 </div>
 
 <script>
+
 function showQR(){
-    document.getElementById("qrModal").style.display="flex";
+document.getElementById("qrModal").style.display="flex";
 }
+
 function closeQR(){
-    document.getElementById("qrModal").style.display="none";
+document.getElementById("qrModal").style.display="none";
 }
+
 </script>
 
 </body>
-
 </html>
