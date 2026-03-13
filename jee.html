@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEE Premium Notes</title>
+
+<style>
+
+body{
+background:linear-gradient(135deg,#020617,#0b1a36,#1a2a50);
+color:white;
+font-family:Arial;
+text-align:center;
+margin:0;
+}
+
+header{
+font-size:40px;
+padding:20px;
+border-bottom:2px solid #00ffd5;
+}
+
+.book-box{
+margin-top:60px;
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding-bottom:60px;
+}
+
+.book{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:20px;
+border:2px solid white;
+width:260px;
+
+animation: boxGlow 2s infinite alternate;
+
+transition:0.3s;
+}
+
+@keyframes boxGlow{
+
+from{
+box-shadow:
+0 0 3px #00ff88,
+0 0 6px #00ff88,
+0 0 3px white;
+}
+
+to{
+box-shadow:
+0 0 6px #00ff88,
+0 0 10px #00ff88,
+0 0 5px white;
+}
+
+}
+
+.book:hover{
+transform:translateY(-5px);
+}
+
+.book img{
+width:100%;
+border-radius:10px;
+}
+
+.price{
+margin:10px 0;
+font-size:20px;
+color:#00ffd5;
+}
+
+.btn{
+display:inline-block;
+padding:10px 22px;
+background:#00ff88;
+color:black;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+border:2px solid white;
+cursor:pointer;
+
+/* glow effect */
+box-shadow:
+0 0 5px #00ff88,
+0 0 10px #00ff88,
+0 0 15px #00ff88,
+0 0 5px white inset;
+
+transition:0.3s;
+}
+
+.btn:hover{
+background:#00ff88;
+color:black;
+
+box-shadow:
+0 0 10px #00ff88,
+0 0 20px #00ff88,
+0 0 40px #00ff88,
+0 0 10px white,
+0 0 20px white inset;
+}
+
+/* QR POPUP */
+
+.qr-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+}
+
+.qr-box{
+background:#111;
+padding:25px;
+border-radius:20px;
+text-align:center;
+border:3px solid #00ff88;
+box-shadow:0 0 18px rgba(0,255,136,0.6);
+}
+
+.qr-box img{
+width:250px;
+border-radius:10px;
+}
+
+.close-btn{
+margin-top:15px;
+padding:8px 15px;
+border:none;
+background:#00ff88;
+color:black;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>NEET Premium Notes</header>
+
+<div class="book-box">
+
+<!-- BOOK 1 -->
+
+<div class="book">
+<img src="jee1.jpg">
+<h3>JEE physics Notes Part 1</h3>
+<div class="price">₹20</div>
+<a onclick="showQR()" class="btn">Pay ₹20</a><br><br>
+<a href="download.html?file=neet-bio1.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 2 -->
+
+<div class="book">
+<img src="jee2.jpg">
+<h3>JEE physics Notes Part 2</h3>
+<div class="price">₹20</div>
+<a onclick="showQR()" class="btn">Pay ₹20</a><br><br>
+<a href="download.html?file=neet-bio2.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 3 -->
+
+<div class="book">
+<img src="jee3.jpg">
+<h3>JEE Chemistry Notes Part 1</h3>
+<div class="price">₹20</div>
+<a onclick="showQR()" class="btn">Pay ₹20</a><br><br>
+<a href="download.html?file=neet-chem1.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 4 -->
+
+<div class="book">
+<img src="jee4.jpg">
+<h3>JEE Chemistry Notes Part 2</h3>
+<div class="price">₹20</div>
+<a onclick="showQR()" class="btn">Pay ₹20</a><br><br>
+<a href="download.html?file=neet-chem2.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 5 -->
+
+<div class="book">
+<img src="jee5.jpg">
+<h3>JEE math Notes Part 1</h3>
+<div class="price">₹20</div>
+<a onclick="showQR()" class="btn">Pay ₹20</a><br><br>
+<a href="download.html?file=neet-phy1.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 6 -->
+
+<div class="book">
+<img src="jee6.jpg">
+<h3>JEE math Notes Part 2</h3>
+<div class="price">₹20</div>
+<a onclick="showQR()" class="btn">Pay ₹20</a><br><br>
+<a href="download.html?file=neet-phy2.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 7 -->
+
+<div class="book">
+<img src="jee7.jpg">
+<h3>JEE PYQ Book</h3>
+<div class="price">₹25</div>
+<a onclick="showQR()" class="btn">Pay ₹25</a><br><br>
+<a href="download.html?file=neet-pyq.pdf" class="btn">Download</a>
+</div>
+
+<!-- BOOK 8 -->
+
+<div class="book">
+<img src="jee8.jpg">
+<h3>JEE Quick Revision Notes</h3>
+<div class="price">₹15</div>
+<a onclick="showQR()" class="btn">Pay ₹15</a><br><br>
+<a href="download.html?file=neet-revision.pdf" class="btn">Download</a>
+</div>
+
+</div>
+
+<!-- QR PAYMENT POPUP -->
+
+<div class="qr-modal" id="qrModal">
+<div class="qr-box">
+
+<h2>Scan to Pay</h2>
+<p>After payment click download</p>
+
+<p style="color:#00ff88;font-weight:bold;">
+UPI ID: 7776958686-2@axl
+</p>
+
+<img src="qr.png">
+
+<br>
+
+<button class="close-btn" onclick="closeQR()">Close</button>
+
+</div>
+</div>
+
+<script>
+
+function showQR(){
+document.getElementById("qrModal").style.display="flex";
+}
+
+function closeQR(){
+document.getElementById("qrModal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
